@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.landing-container {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* TOP RIGHT NAV */
+.top-right {
+  position: absolute;
+  top: 35px;
+  right: 50px;
+  z-index: 10;
+  display: flex;
+  gap: 25px;
+  font-family: "Bell MT", serif;
+  color: var(--link-color, white); /* dynamic color per slide */
+}
+
+/* LOG IN / SIGN UP LINKS */
+.top-right a {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: inherit; /* inherits dynamic slide color */
+  transition: color 0.3s, opacity 0.3s;
+}
+
+/* Hover effect: always black */
+.top-right a:hover {
+  color: black;
+  opacity: 1;
+}
+
+/* CENTER BRAND TEXT */
+.brand-title {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: "Cinzel", serif;
+  z-index: 10;
+  transition: color 0.3s;
+}
+
+/* SLIDER ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 45px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+  transition: color 0.3s, opacity 0.3s;
+  user-select: none;
+}
+
+.arrow:hover {
+  opacity: 0.65;
+}
+
+.arrow-left {
+  left: 40px;
+}
+
+.arrow-right {
+  right: 40px;
+}
+
+/* BOTTOM LEFT CAPTION */
+.caption {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Bell MT", serif;
+  z-index: 10;
+  max-width: 40%;
+  line-height: 1.4;
+  transition: opacity 1s ease-in-out;
+}
+
+.caption-box {
+  background: rgba(0, 0, 0, 0.35); /* semi-transparent box */
+  padding: 10px 15px;
+  border-radius: 8px;
+  word-wrap: break-word;
+}

@@ -1,0 +1,411 @@
+/* --- Global Reset for Full Width Coverage (Fixes the grey border issue) --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+/* Base Page Styling */
+.homepage {
+ min-height: 100vh;
+ font-family: Arial, sans-serif;
+ /* REMOVED: padding-top: 70px; */ 
+ background-color: #ffffff;
+}
+
+/* --- SCROLL ANIMATION KEYFRAMES --- */
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Initial state for all animated elements */
+.scroll-slide-left, .scroll-slide-right {
+  opacity: 0;
+  /* Reset position for the animation to work correctly when 'visible' is applied */
+  transform: translateX(0); 
+  transition: opacity 0.5s ease-out; /* Fallback transition */
+}
+
+/* Apply specific animation when 'visible' */
+.scroll-slide-left.visible {
+  opacity: 1;
+  animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scroll-slide-right.visible {
+  opacity: 1;
+  animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+ position: fixed;
+ top: 0;
+ width: 100vw; 
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 10px 30px;
+ z-index: 1000;
+ background: rgba(0, 0, 0, 0.85);
+ color: white;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.navbar-logo {
+ font-weight: 700;
+ font-size: 24px;
+ color: white;
+ text-decoration: none;
+}
+
+.navbar-right {
+ display: flex;
+ align-items: center;
+}
+
+.nav-links {
+ display: flex;
+ gap: 25px;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+.nav-links li a {
+ color: white;
+ text-decoration: none;
+ font-weight: 500;
+ transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+ color: #ff6347;
+}
+
+/* USER MENU & DROPDOWN */
+.user-menu {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ margin-left: 20px;
+ cursor: pointer;
+ position: relative;
+}
+
+.user-name {
+ color: white;
+ font-weight: 500;
+}
+
+.menu-bars {
+ font-size: 20px;
+ color: white;
+}
+
+.dropdown-menu {
+ position: absolute;
+ top: 40px;
+ right: 0;
+ background: #222;
+ padding: 10px;
+ border-radius: 5px;
+ min-width: 150px;
+ z-index: 200;
+ display: flex;
+ flex-direction: column;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+ background: none;
+ border: none;
+ color: white;
+ text-align: left;
+ padding: 8px 0;
+ cursor: pointer;
+ text-decoration: none;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+ color: #ff6347;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+ position: relative;
+ /* Ensures the section takes up the full viewport height */
+ height: 100vh; 
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ text-align: center;
+ overflow: hidden;
+}
+
+.hero-img {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ z-index: 1;
+}
+
+.overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.5); 
+ z-index: 2;
+}
+
+.hero-text {
+ position: relative;
+ z-index: 3;
+ /* Added padding/margin to pull text down slightly below the fixed navbar for initial view */
+ margin-top: 70px;
+}
+
+.hero-text h1 {
+ font-size: 4em;
+ margin-bottom: 0.2em;
+}
+
+.hero-text p {
+ font-size: 1.5em;
+}
+
+.hero-button {
+ display: inline-block;
+ margin-top: 20px;
+ padding: 12px 30px;
+ background-color: #ff6347; 
+ color: white;
+ text-decoration: none;
+ border-radius: 5px;
+ font-weight: bold;
+ transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+ background-color: #e5533c;
+}
+
+/* --- Content Sections (General) --- */
+.rich-content-section, 
+.why-choose-us-section,
+.menu-section, 
+.reviews-section {
+ padding: 80px 20px;
+ max-width: 1200px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.rich-content-section p {
+ max-width: 800px;
+ margin: 15px auto;
+ line-height: 1.8;
+ color: #555;
+}
+
+/* --- NEW: Why Choose Us Section --- */
+.why-choose-us-section {
+  background-color: #f0f0f0;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature-card h3 {
+  color: #ff6347;
+  margin-top: 0;
+}
+.feature-card p {
+  color: #555;
+  margin: 0;
+}
+
+/* --- Menu Section --- */
+.menu-section {
+ background-color: #ffffff;
+}
+
+.menu-subtitle {
+ color: #777;
+ margin-bottom: 40px;
+ font-size: 1.1em;
+}
+
+.menu-grid {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 30px;
+}
+
+.menu-card {
+ width: 300px;
+ background: white;
+ border-radius: 10px;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+ overflow: hidden;
+ text-align: left;
+}
+
+.menu-image {
+ width: 100%;
+ height: 200px;
+ object-fit: cover;
+ /* Prevent broken image placeholder visibility */
+ background-color: #eee; 
+}
+
+.card-content {
+ padding: 20px;
+}
+
+.item-price {
+ color: #ff6347;
+ font-weight: bold;
+ font-size: 1.2em;
+ margin: 10px 0;
+}
+
+.suggestion {
+ margin-top: 15px;
+ padding: 10px;
+ background-color: #fff0e6;
+ border-left: 4px solid #ff6347;
+ font-size: 0.9em;
+}
+
+.full-menu-button {
+ display: inline-block;
+ margin-top: 40px;
+ padding: 15px 40px;
+ background-color: #333;
+ color: white;
+ text-decoration: none;
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.full-menu-button:hover {
+ background-color: #555;
+}
+
+/* --- Reviews Section --- */
+.reviews-section {
+ background-color: #f9f9f9;
+}
+
+.review-grid {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 20px;
+}
+
+.review-card {
+ width: 350px;
+ padding: 25px;
+ border: 1px solid #eee;
+ border-radius: 8px;
+ text-align: center;
+ background: white;
+}
+
+.review-rating {
+ font-size: 1.5em;
+ margin-bottom: 10px;
+}
+
+.review-text {
+ font-style: italic;
+ color: #333;
+}
+
+.submit-review-link {
+ display: inline-block;
+ margin-top: 30px;
+ color: #ff6347;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+/* --- Footer Section --- */
+.main-footer {
+ background-color: #222;
+ color: #ccc;
+ padding: 40px 20px 10px;
+ font-size: 0.9em;
+}
+
+.footer-content {
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
+ max-width: 1200px;
+ margin: 0 auto 30px;
+}
+
+.footer-section {
+ width: 250px;
+ margin: 20px;
+ text-align: left;
+}
+
+.footer-section h3 {
+ color: white;
+ border-bottom: 2px solid #ff6347;
+ padding-bottom: 10px;
+ margin-bottom: 15px;
+}
+
+.footer-section ul {
+ list-style: none;
+ padding: 0;
+}
+
+.footer-section a {
+ color: #ccc;
+ text-decoration: none;
+}
+
+.footer-section a:hover {
+ color: #ff6347;
+}
+
+.footer-bottom {
+ text-align: center;
+ border-top: 1px solid #444;
+ padding-top: 15px;
+}
