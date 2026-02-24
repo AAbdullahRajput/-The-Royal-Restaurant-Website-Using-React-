@@ -72,7 +72,8 @@ npm install
 npm start  
 
 ### Databse
-It have a file royalsdb connect with the project. just download the mangodb compass and export the db file.
+It has a file royalsdb connected with the project. Just download the MongoDB Compass and export the DB file.
+name of file is royalsdb.users.jason
 
 The application will run on:
 http://localhost:3000
